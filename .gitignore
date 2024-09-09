@@ -125,3 +125,5 @@ res/
 .DS_Store
 scripts/
 
+.models/
+
