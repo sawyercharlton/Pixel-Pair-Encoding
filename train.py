@@ -23,8 +23,8 @@ for TokenizerClass, name in zip([BasicTokenizer], ["basic"]):
         image = Image.open(in_img)
         img_array = asarray(image)
         img_array_flat = img_array.flatten()
-        tokenizer.train(img_array_flat, 256 + 50000, 2, resume=True,
-                        verbose=False)  # 256 are the byte tokens, then do ? merges
+        tokenizer.train(img_array_flat, 256 + 20000, 2, resume=True,
+                        verbose=False)  # 256 are the byte tokens, then do ? merges; The 3rd parameter is merge requirement threshold of word occurance frequency.
     prefix = os.path.join("models", name)
     tokenizer.save(prefix)  # writes two files in the models directory: name.model, and name.vocab
 t1 = time.time()

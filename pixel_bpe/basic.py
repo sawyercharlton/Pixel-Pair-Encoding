@@ -19,15 +19,11 @@ class BasicTokenizer(Tokenizer):
     def __init__(self):
         super().__init__()
 
-    def train(self, text, vocab_size, threshold=2, resume=True, verbose=False):
+    def train(self, text, vocab_size=256+20000, threshold=2, resume=True, verbose=False):
         assert vocab_size >= 256
         num_merges = vocab_size - 256
 
         # input text preprocessing
-        # text_bytes = text.encode("utf-8") # raw bytes
-        # ids = list(text_bytes) # list of integers in range 0..255
-        # img_string = [str(i) for i in text]
-        # ids = [int(x) for x in img_string]
         ids = text
 
         # iteratively merge the most common pairs to create new tokens
@@ -65,9 +61,6 @@ class BasicTokenizer(Tokenizer):
         self.vocab = vocab   # used in decode()
 
     def decode(self, ids):
-        # given ids (list of integers), return Python string
-        # text_bytes = b"".join(self.vocab[idx] for idx in ids)
-        # text = text_bytes.decode("utf-8", errors="replace")
         num_merges = len(self.vocab) - 256
         print("--------------------\n", "len(self.vocab): ", len(self.vocab), "\n--------------------")
         temp = []
@@ -87,11 +80,6 @@ class BasicTokenizer(Tokenizer):
         return text
 
     def encode(self, text):
-        # given a string text, return the token ids
-        # text_bytes = text.encode("utf-8") # raw bytes
-        # ids = list(text_bytes) # list of integers in range 0..255
-        # img_string = [str(i) for i in text]
-        # ids = [int(x) for x in img_string]
         ids = text
 
         while len(ids) >= 2:

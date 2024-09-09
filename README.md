@@ -5,9 +5,9 @@
 
 
 ## Quick Start
-- run [mnist_vis.py](mnist_vis.py) to download and visualize MNIST dataset.
-- run [train.py](train.py) to train a model (vocabulary).
-- run [test.py](test.py) to inference.
+1. run [mnist_vis.py](vis_mnist.py) to download and visualize MNIST dataset.
+2. run [train.py](train.py) to train a model (vocabulary).
+3. run [test.py](test.py) to inference.
 
 
 ## Reference
